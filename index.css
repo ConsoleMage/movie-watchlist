@@ -1,4 +1,33 @@
-html, body {
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
+    font-family: "Inter", serif;
+    font-weight: 500;
+}
+
+.container {
+    margin: 100px auto 0;
+    border: 2px solid red;
+    /* background: #121212; */
+    width: 550px;
+    height: 779px;
+}
+
+nav {
+    border: 2px solid red;
+    width: Fixed (462px)px;
+    height: Hug (38px)px;
+    border-radius: 6px;
+
+}
+main {
+    margin: 0 auto;
+    border: 2px solid red;
+    width: 462px;
+    height: 533.41px;
 }
