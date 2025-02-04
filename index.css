@@ -51,7 +51,6 @@ header p {
 
 main {
     margin: 0 auto;
-    border: 2px solid red;
     width: 462px;
     height: 533.41px;
 }
@@ -101,6 +100,7 @@ main {
 #result {
     display: flex;
     color: #FFFFFF;
+    margin-bottom: 20px;
 }
 
 #result > img {
@@ -147,6 +147,7 @@ main {
 
 #add-icon {
     margin-left: 20px;
+    margin-right: 5px;
     width: 20px;
     height: 20px;
     background-image: url("./icons/icon-1.png");
@@ -160,7 +161,7 @@ main {
 }
 
 #watch {
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 /* Result 3 */
