@@ -15,7 +15,6 @@ body {
     background: #121212;
     width: 550px;
     height: 779px;
-
 }
 
 header {
@@ -27,7 +26,6 @@ header {
     display: flex;
     margin: 0 auto;
 }
-
 
 header h1 {
     padding-left: 42px;
@@ -153,7 +151,6 @@ main {
     background-image: url("./icons/icon-1.png");
     background-size: contain;
     background-repeat: no-repeat;
-
 }
 
 #genre {
