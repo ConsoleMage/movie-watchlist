@@ -12,8 +12,7 @@ body {
 
 .container {
     margin: 100px auto 0;
-    border: 2px solid red;
-    /* background: #121212; */
+    background: #121212;
     width: 550px;
     height: 779px;
 
@@ -21,16 +20,17 @@ body {
 
 header {
     color: #FFFFFF;
-    background: url("images/header-img.png") no-repeat top;
+    background: url("images/header-img.png") no-repeat;
+    background-position: 50% 22.5%;
     width: 550px;
     height: 208px;
     display: flex;
     margin: 0 auto;
-    justify-content: space-between;
 }
 
 
 header h1 {
+    padding-left: 42px;
     align-self: center;
     font-size: 42.79px;
     font-weight: 800;
@@ -40,6 +40,7 @@ header h1 {
 }
 
 header p {
+    margin-left: 120px;
     align-self: center;
     padding-top: 6px;
     font-size: 14px;
