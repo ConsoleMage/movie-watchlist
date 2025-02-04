@@ -124,6 +124,10 @@ main {
 
 /* Results styling */
 
+#search-results {
+    margin-top: 208px;
+}
+
 #result {
     display: flex;
     color: #FFFFFF;
