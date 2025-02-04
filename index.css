@@ -20,7 +20,7 @@ body {
 
 header {
     color: #FFFFFF;
-    background: url("images/header-img.png") no-repeat;
+    background: url("./images/header-img.png") no-repeat;
     background-position: 50% 22.5%;
     width: 550px;
     height: 208px;
@@ -71,7 +71,7 @@ main {
     align-self: center;
     width: 20px;
     height: 20px;
-    background-image: url("icons/icon-3.png");
+    background-image: url("./icons/icon-3.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -97,12 +97,13 @@ main {
 }
 
 /* Results styling */
+
 #result {
     display: flex;
     color: #FFFFFF;
 }
 
-#result img {
+#result > img {
     margin-top: 30px;
     width: 99px;
     height: 147.41px;
@@ -111,13 +112,16 @@ main {
 
 #result-info {
     align-self: center;
+    margin-left: 20px;
+    margin-top: 30px;
 }
 
-#result-info-2 {
+#add-icon {
+    margin-left: 20px;
     align-self: center;
+    width: 20px;
+    height: 20px;
+    background-image: url("./icons/icon-1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-
-#result-info-3 {
-    align-self: center;
-}
-

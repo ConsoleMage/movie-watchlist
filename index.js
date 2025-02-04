@@ -8,7 +8,14 @@ async function getMovie() {
             <img src="${data.Poster}" />
             <div id="result-info">
                 <p>${data.Title}</p>
-                <p>This is the home section.</p>
+                <div id="movie-info">
+                    <p>This is the home section.</p>
+                    <div>
+                        <img id="add-icon" />
+                        <p>Watchlist</p>
+                    </div>
+
+                </div>
             </div>
         </div>
         <hr />
