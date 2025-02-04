@@ -4,13 +4,15 @@ async function getMovie() {
     console.log(data);
     let html = "";
     document.getElementById("search-results").innerHTML = `
-            <div id="result">
-                <img src=${data.Poster} />
-                <h2>Home</h2>
+        <div id="result">
+            <img src="${data.Poster}" />
+            <div id="result-info">
+                <p>${data.Title}</p>
                 <p>This is the home section.</p>
             </div>
+        </div>
+        <hr />
     `;
-    
 }
 
 getMovie();

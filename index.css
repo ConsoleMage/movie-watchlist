@@ -95,3 +95,29 @@ main {
     border-radius: 0px 6px 6px 0px;
     background: #4B4B4B;
 }
+
+/* Results styling */
+#result {
+    display: flex;
+    color: #FFFFFF;
+}
+
+#result img {
+    margin-top: 30px;
+    width: 99px;
+    height: 147.41px;
+    border-radius: 2.33px 0px 0px 0px;
+}
+
+#result-info {
+    align-self: center;
+}
+
+#result-info-2 {
+    align-self: center;
+}
+
+#result-info-3 {
+    align-self: center;
+}
+
