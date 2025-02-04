@@ -16,18 +16,81 @@ body {
     /* background: #121212; */
     width: 550px;
     height: 779px;
-}
-
-nav {
-    border: 2px solid red;
-    width: Fixed (462px)px;
-    height: Hug (38px)px;
-    border-radius: 6px;
 
 }
+
+header {
+    color: #FFFFFF;
+    background: url("images/header-img.png") no-repeat top;
+    width: 550px;
+    height: 208px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+
+header h1 {
+    align-self: center;
+    font-size: 42.79px;
+    font-weight: 800;
+    line-height: 23.77px;
+    letter-spacing: -0.045em;
+    text-align: justified;
+}
+
+header p {
+    align-self: center;
+    padding-top: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: right;
+}
+
 main {
     margin: 0 auto;
     border: 2px solid red;
     width: 462px;
     height: 533.41px;
+}
+
+#search-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 462px;
+    height: 38px;
+    border-radius: 6px 0px 0px 0px;
+    background: #2E2E2F;
+    box-shadow: 0px 1px 2px 0px #0000000D;
+}
+
+#search-icon {
+    margin-left: 20px;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    background-image: url("icons/icon-3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#search-input {
+    width: 60%;
+    margin-right: 10px;
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    appearance: none; /* For other browsers */
+    padding: 9px 13px;
+    background: #2E2E2F;
+    border: none;
+    outline: none; /* Remove outline */
+    color: white; /* Set text color */
+}
+
+#search-button {
+    width: 120px;
+    padding: 9px 11px 9px 17px;
+    border-radius: 0px 6px 6px 0px;
+    background: #4B4B4B;
 }
