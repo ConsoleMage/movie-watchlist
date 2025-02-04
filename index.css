@@ -19,6 +19,8 @@ body {
     overflow-y: scroll;
 }
 
+/* Header */
+
 header {
     position: fixed;
     color: #FFFFFF;
@@ -55,6 +57,8 @@ main {
     width: 462px;
     height: 533.41px;
 }
+
+/* Search bar */
 
 #search-bar {
     position: fixed;
@@ -96,6 +100,26 @@ main {
     padding: 9px 11px 9px 17px;
     border-radius: 0px 6px 6px 0px;
     background: #4B4B4B;
+}
+
+/* Empty */
+
+#empty {
+    display: flex;
+    margin: 438px auto 0;
+    width: 70px;
+    height: 61.25px;
+}
+
+#empty-text {
+    margin: 10px auto 0;
+    width: 148px;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    color: #2E2E2F;
 }
 
 /* Results styling */
