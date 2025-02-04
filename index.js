@@ -1,11 +1,20 @@
 
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-button");
+
+searchBtn.addEventListener("click", getMovie);
+
+document.getElementById("search-bar").addEventListener("submit", function(event) {
+    event.preventDefault();
+});
 
 async function getMovie() {
-    const response = await fetch("https://www.omdbapi.com/?i=tt3896198&apikey=145209d1");
+    console.log(searchInput.value);
+    const response = await fetch(`https://www.omdbapi.com/?apikey=145209d1&t=${searchInput.value}`);
     const data = await response.json();
     console.log(data);
-    let html = "";
-    document.getElementById("search-results").innerHTML = `
+    if (data.Title) {
+        document.getElementById("search-results").innerHTML += `
         <div id="result">
             <img src="${data.Poster}" />
             <div id="result-info">
@@ -26,11 +35,13 @@ async function getMovie() {
         </div>
         <hr />
     `;
+    } else {
+        document.getElementById("search-results").innerHTML += `
+        <p>NOT FOUND!!!</p>
+    `;
+    }
+
 }
-
-getMovie();
-
-
 
 
 
