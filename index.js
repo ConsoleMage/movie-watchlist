@@ -1,13 +1,13 @@
-// const addBtn = document.getElementById("add-icon");
-// addBtn.addEventListener("click", saveToWatchlist);
-
 let movieTitleArray = [];
+
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
 
 searchBtn.addEventListener("click", getMovieByTitle);
 
-document.getElementById("search-bar").addEventListener("submit", function(event) {
+// Prevent form button submit default behaviour
+
+document.getElementById("search-bar").addEventListener("submit", function (event) {
     console.log("prevent default works here!!");
     event.preventDefault();
 });
