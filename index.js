@@ -1,4 +1,5 @@
 let movieTitleArray = [];
+let watchList = [];
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
@@ -23,11 +24,11 @@ async function getMovieByTitle() {
         let movieObj = {
             poster: titleData.Poster,
             title: titleData.Title,
-            rating: titleData.Ratings[0].Value.split('/')[0],
+            rating: titleData.imdbRating,
             runtime: titleData.Runtime,
             genre: titleData.Genre,
             plot: titleData.Plot,
-            imdbID: titleData.imdbID.match(/\d+/g).join("")
+            id: titleData.imdbID
         };
         if (movieObj) {
             document.getElementById("toggle-empty").style.display = "none";
@@ -42,7 +43,7 @@ async function getMovieByTitle() {
                         <div id="result-2">
                             <p id="runtime">${movieObj.runtime}</p>
                             <p id="genre">${movieObj.genre}</p>
-                            <div id="add-icon" data-id=${imdbID}></div>
+                            <div id="add-icon" data-id=${movieObj.id}></div>
                             <p id="watch">Watchlist</p>
                         </div>
                         <div id="result-3">
@@ -51,7 +52,8 @@ async function getMovieByTitle() {
                     </div>
                 </div>
                 <hr />
-        `;
+            `;
+            document.querySelector(`[data-id='${movieObj.id}']`).addEventListener("click", () => saveToWatchlist(movieObj.id));
         } else {
             document.getElementById("search-results").innerHTML += `
                 <p>Unable to find what you’re looking for. Please try another search.</p>
@@ -71,4 +73,9 @@ async function getMovieBySearch() {
             movieTitleArray.push(movie.Title);
         }
     }
+}
+
+function saveToWatchlist(id) {
+    watchList.push(id);
+    console.log(watchList);
 }
