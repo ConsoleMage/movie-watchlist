@@ -77,18 +77,11 @@ async function getMovieBySearch() {
 
 // Watchlist functionality
 
-const containerElement = document.querySelector(".container");
-
-containerElement.addEventListener("click", (e) => {
-    console.log("target.dataset.id: " + e.target.dataset.id);
+document.querySelector(".container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
-    console.log(resultElement);
 
     if (resultElement) {
-        // Save the HTML content of the resultDiv to localStorage
         localStorage.setItem("savedResultHTML", resultElement.outerHTML);
-
-        // Log for debugging
         console.log(resultElement.outerHTML);
         watchList.push(resultElement.outerHTML);
         console.log(watchList);

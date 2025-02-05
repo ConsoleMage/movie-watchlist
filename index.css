@@ -44,7 +44,7 @@ header h1 {
     text-align: justified;
 }
 
-header p {
+header > a {
     margin-left: 120px;
     align-self: center;
     padding-top: 6px;
@@ -52,6 +52,9 @@ header p {
     font-weight: 700;
     line-height: 20px;
     text-align: right;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 main {
