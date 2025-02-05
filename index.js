@@ -53,15 +53,18 @@ async function getMovieByTitle() {
                 </div>
                 <hr />
             `;
-            
+            console.log(document.querySelector(`[data-id="${movieObj.id}"]`)); 
+            document.querySelector(`[data-id="${movieObj.id}"]`).addEventListener("click", (event) => {
+                if (event.target.classList.contains("add-icon")) {
+                    saveToWatchlist(movieObj.id)
+                }
+            }); 
         } else {
             document.getElementById("search-results").innerHTML += `
                 <p>Unable to find what you’re looking for. Please try another search.</p>
         `;
         }
     }
-    console.log(document.querySelectorAll(".add-icon"));
-    document.querySelectorAll(".add-icon").addEventListener("click", () => console.log(movieObj.id));
 }
 
 // Get movie titles from &s= endpoint first
@@ -78,7 +81,6 @@ async function getMovieBySearch() {
 }
 
 function saveToWatchlist(id) {
-    console.log("add icon is clicked!");
+    console.log("button is clicked!!!!!");
     watchList.push(id);
-    console.log(watchList);
 }
