@@ -13,14 +13,6 @@ document.getElementById("search-bar").addEventListener("submit", function (event
     event.preventDefault();
 });
 
-const containerElement = document.querySelector(".container");
-
-containerElement.addEventListener("click", (e) => {
-    console.log(e);
-    console.log(e.target.id);
-    console.log(e.target.dataset.id);
-});
-
 // Use global variable movieTitleArray in for...of loop to return all data from &t= endpoint
 
 async function getMovieByTitle() {
@@ -83,7 +75,22 @@ async function getMovieBySearch() {
     }
 }
 
-function saveToWatchlist(id) {
-    console.log("button is clicked!!!!!");
-    watchList.push(id);
-}
+// Watchlist functionality
+
+const containerElement = document.querySelector(".container");
+
+containerElement.addEventListener("click", (e) => {
+    console.log("target.dataset.id: " + e.target.dataset.id);
+    const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
+    console.log(resultElement);
+
+    if (resultElement) {
+        // Save the HTML content of the resultDiv to localStorage
+        localStorage.setItem("savedResultHTML", resultElement.outerHTML);
+
+        // Log for debugging
+        console.log(resultElement.outerHTML);
+        watchList.push(resultElement.outerHTML);
+        console.log(watchList);
+    }
+});
