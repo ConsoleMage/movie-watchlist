@@ -1,8 +1,17 @@
+let movieObj = {
+    poster: data.Poster,
+    title: data.Title,
+    rating: data.Ratings[0].Value.split('/')[0],
+    runtime: data.Runtime,
+    genre: data.Genre
+};
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
+const addBtn = document.getElementById("add-icon");
 
 searchBtn.addEventListener("click", getMovie);
+addBtn.addEventListener("click", saveToWatchlist);
 
 document.getElementById("search-bar").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -41,7 +50,6 @@ async function getMovie() {
             <p>Unable to find what you’re looking for. Please try another search.</p>
     `;
     }
-
 }
 
 
