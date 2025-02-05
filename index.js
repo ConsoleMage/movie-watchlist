@@ -26,7 +26,7 @@ async function getMovie() {
                     <div id="result-2">
                         <p id="runtime">${data.Runtime}</p>
                         <p id="genre">${data.Genre}</p>
-                        <img id="add-icon" />
+                        <div id="add-icon"></div>
                         <p id="watch">Watchlist</p>
                     </div>
                     <div id="result-3">
