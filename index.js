@@ -13,6 +13,14 @@ document.getElementById("search-bar").addEventListener("submit", function (event
     event.preventDefault();
 });
 
+const containerElement = document.querySelector(".container");
+
+containerElement.addEventListener("click", (e) => {
+    console.log(e);
+    console.log(e.target.id);
+    console.log(e.target.dataset.id);
+});
+
 // Use global variable movieTitleArray in for...of loop to return all data from &t= endpoint
 
 async function getMovieByTitle() {
@@ -33,7 +41,7 @@ async function getMovieByTitle() {
         if (movieObj) {
             document.getElementById("toggle-empty").style.display = "none";
             document.getElementById("search-results").innerHTML += `
-                <div id="result">
+                <div id="result" data-id=${movieObj.id}>
                     <img src="${movieObj.poster}" />
                     <div id="result-info">
                         <div id="result-1">
@@ -53,12 +61,7 @@ async function getMovieByTitle() {
                 </div>
                 <hr />
             `;
-            console.log(document.querySelector(`[data-id="${movieObj.id}"]`)); 
-            document.querySelector(`[data-id="${movieObj.id}"]`).addEventListener("click", (event) => {
-                if (event.target.classList.contains("add-icon")) {
-                    saveToWatchlist(movieObj.id)
-                }
-            }); 
+            
         } else {
             document.getElementById("search-results").innerHTML += `
                 <p>Unable to find what you’re looking for. Please try another search.</p>
