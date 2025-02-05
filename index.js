@@ -43,7 +43,7 @@ async function getMovieByTitle() {
                         <div id="result-2">
                             <p id="runtime">${movieObj.runtime}</p>
                             <p id="genre">${movieObj.genre}</p>
-                            <div id="add-icon" data-id=${movieObj.id}></div>
+                            <div class="add-icon" data-id=${movieObj.id}></div>
                             <p id="watch">Watchlist</p>
                         </div>
                         <div id="result-3">
@@ -53,12 +53,15 @@ async function getMovieByTitle() {
                 </div>
                 <hr />
             `;
-            document.querySelector(`[data-id='${movieObj.id}']`).addEventListener("click", () => saveToWatchlist(movieObj.id));
+            
         } else {
             document.getElementById("search-results").innerHTML += `
                 <p>Unable to find what you’re looking for. Please try another search.</p>
         `;
         }
+        console.log(document.querySelectorAll(".add-icon"));
+
+        // document.querySelectorAll(".add-icon").addEventListener("click", () => saveToWatchlist(movieObj.id));
     }
 }
 
@@ -76,6 +79,7 @@ async function getMovieBySearch() {
 }
 
 function saveToWatchlist(id) {
+    console.log("add icon is clicked!");
     watchList.push(id);
     console.log(watchList);
 }
