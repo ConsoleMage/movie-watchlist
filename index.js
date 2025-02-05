@@ -16,6 +16,8 @@ document.getElementById("search-bar").addEventListener("submit", function(event)
 
 async function getMovie() {
     console.log(searchInput.value);
+    // By Search
+    // By Title
     const response = await fetch(`https://www.omdbapi.com/?apikey=145209d1&t=${searchInput.value}`);
     const data = await response.json();
     console.log(data);
