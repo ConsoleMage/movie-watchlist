@@ -187,6 +187,7 @@ main {
     background-image: url("./icons/icon-1.png");
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 #genre {
