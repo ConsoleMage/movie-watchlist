@@ -26,7 +26,8 @@ async function getMovieByTitle() {
             rating: titleData.Ratings[0].Value.split('/')[0],
             runtime: titleData.Runtime,
             genre: titleData.Genre,
-            plot: titleData.Plot
+            plot: titleData.Plot,
+            imdbID: titleData.imdbID.match(/\d+/g).join("")
         };
         if (movieObj) {
             document.getElementById("toggle-empty").style.display = "none";
@@ -41,7 +42,7 @@ async function getMovieByTitle() {
                         <div id="result-2">
                             <p id="runtime">${movieObj.runtime}</p>
                             <p id="genre">${movieObj.genre}</p>
-                            <div id="add-icon"></div>
+                            <div id="add-icon" data-id=${imdbID}></div>
                             <p id="watch">Watchlist</p>
                         </div>
                         <div id="result-3">
