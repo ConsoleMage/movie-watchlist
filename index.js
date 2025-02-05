@@ -59,10 +59,9 @@ async function getMovieByTitle() {
                 <p>Unable to find what you’re looking for. Please try another search.</p>
         `;
         }
-        console.log(document.querySelectorAll(".add-icon"));
-
-        // document.querySelectorAll(".add-icon").addEventListener("click", () => saveToWatchlist(movieObj.id));
     }
+    console.log(document.querySelectorAll(".add-icon"));
+    document.querySelectorAll(".add-icon").addEventListener("click", () => console.log(movieObj.id));
 }
 
 // Get movie titles from &s= endpoint first
