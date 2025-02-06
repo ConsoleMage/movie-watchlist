@@ -39,6 +39,7 @@
         </main>
     </div>
     <script>
+        document.getElementById("toggle-empty").style.display = "none";
         const searchResultsContainer = document.getElementById("search-results");
         
         function loadSavedResults() {
@@ -46,7 +47,6 @@
             console.log("On Load: " + savedResultsArray);
 
             if (savedResultsArray.length > 0) {
-                document.getElementById("toggle-empty").style.display = "none";
                 document.getElementById("container").style.overflowY = "scroll";
                 savedResultsArray.forEach(html => {
                     searchResultsContainer.innerHTML += html;
@@ -58,7 +58,6 @@
                 });
             } else if (savedResultsArray.length === 0) {
                 console.log("Array is empty! Nothing to display.");
-                document.getElementById("toggle-empty").style.display = "none";
                 document.getElementById("search-results").innerHTML += `
                 <p>Your watchlist is looking a little empty...</p>
                 <div id="empty-watch">

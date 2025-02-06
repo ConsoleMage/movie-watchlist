@@ -87,6 +87,5 @@ document.querySelector("#container").addEventListener("click", (e) => {
         watchList.push(resultElement.outerHTML);
         localStorage.setItem("savedResultHTML", JSON.stringify(watchList));
     }
-    console.log("added to watchlist!")
-    console.log(localStorage);
+    console.log("Added to watchlist!")
 });
