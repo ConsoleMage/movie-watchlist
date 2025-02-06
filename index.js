@@ -1,5 +1,4 @@
 let movieTitleArray = [];
-let html = "";
 let watchList = [];
 
 const searchInput = document.getElementById("search-input");
@@ -16,6 +15,7 @@ document.getElementById("search-bar").addEventListener("submit", function (event
 // Use global variable movieTitleArray in for...of loop to return all data from &t= endpoint
 
 async function getMovieByTitle() {
+    let html = "";
     movieTitleArray = [];
     await getMovieBySearch();
     console.log(movieTitleArray.length);
