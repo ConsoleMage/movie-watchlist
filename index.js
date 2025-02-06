@@ -51,13 +51,25 @@ async function getMovieByTitle() {
                                 <p class="watch">Watchlist</p>
                             </div>
                             <div class="result-3">
-                                <p>${movieObj.plot}</p>
+                                <p class="result-3-text">${movieObj.plot}</p>
+                                <div class="read-more">Read more</div>
                             </div>
                         </div>
                     </div>
                     <hr />
                 `;
                 document.getElementById("search-results").innerHTML += html;
+                document.querySelectorAll(".result-3-text").forEach(function(element) {
+                    if (element.textContent.length > 132) {
+                        element.dataset.fulltext = element.textContent;
+                        let maxLength = 132;
+                        element.dataset.shorttext = truncateText(element.textContent, maxLength);
+                        element.textContent = element.dataset.shorttext;
+                    } 
+                    else if ((element.textContent.length <= 132)) {
+                        element.nextElementSibling.classList.add("hidden");
+                    }
+                  });
             }
         }
     } else if (movieTitleArray.length === 0) {
@@ -97,3 +109,10 @@ document.querySelector("#container").addEventListener("click", (e) => {
         console.log("Added to watchlist!")
     }
 });
+
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  }
