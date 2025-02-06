@@ -39,7 +39,7 @@ header {
 }
 
 header h1 {
-    padding-left: 42px;
+    margin-left: 42px;
     align-self: center;
     font-size: 42.79px;
     font-weight: 800;
@@ -49,7 +49,7 @@ header h1 {
 }
 
 header > a {
-    margin-left: 120px;
+    margin-left: 100px;
     align-self: center;
     padding-top: 6px;
     font-size: 14px;
@@ -230,9 +230,12 @@ main {
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
+    text-decoration: none;
+
 }
 
 #empty-add {
+    margin-right: 6px;
     width: 20px;
     height: 20px;
     background-image: url("./icons/icon-1.png");
@@ -241,15 +244,9 @@ main {
     cursor: pointer;
 }
 
-#empty-watch > p {
-    align-items: center;
-}
-
 #genre {
     margin-left: 10px;
 }
-
-
 
 /* Result 3 */
 
