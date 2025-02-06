@@ -81,7 +81,7 @@ async function getMovieBySearch() {
 
 // Add to watchlist functionality
 
-document.querySelector(".container").addEventListener("click", (e) => {
+document.querySelector("#container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
     if (resultElement) {
         watchList.push(resultElement.outerHTML);
