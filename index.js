@@ -24,34 +24,25 @@ async function getMovieByTitle() {
         for (let movie of movieTitleArray) {
             const titleResponse = await fetch(`https://www.omdbapi.com/?apikey=145209d1&t=${movie}`);
             const titleData = await titleResponse.json();
-            let movieObj = {
-                poster: titleData.Poster,
-                title: titleData.Title,
-                rating: titleData.imdbRating,
-                runtime: titleData.Runtime,
-                genre: titleData.Genre,
-                plot: titleData.Plot,
-                id: titleData.imdbID
-            };
-            if (movieObj) {
+            if (movieTitleArray) {
                 document.getElementById("toggle-empty").style.display = "none";
                 document.getElementById("container").style.overflowY = "scroll";
                 html = `
-                    <div class="result" data-id=${movieObj.id}>
-                        <img src="${movieObj.poster}" />
+                    <div class="result" data-id=${titleData.imdbID}>
+                        <img src="${titleData.Poster}" />
                         <div class="result-info">
                             <div class="result-1">
-                                <p>${movieObj.title} ⭐</p>
-                                <p>${movieObj.rating}</p>
+                                <p>${titleData.Title} ⭐</p>
+                                <p>${titleData.imdbRating}</p>
                             </div>
                             <div class="result-2">
-                                <p>${movieObj.runtime}</p>
-                                <p class="genre">${movieObj.genre}</p>
-                                <div class="add-icon" data-id=${movieObj.id}></div>
+                                <p>${titleData.Runtime}</p>
+                                <p class="genre">${titleData.Genre}</p>
+                                <div class="add-icon" data-id=${titleData.imdbID}></div>
                                 <p class="watch">Watchlist</p>
                             </div>
                             <div class="result-3">
-                                <p class="result-3-text">${movieObj.plot}</p>
+                                <p class="result-3-text">${titleData.Plot}</p>
                                 <div class="read-more">Read more</div>
                             </div>
                         </div>
@@ -59,17 +50,6 @@ async function getMovieByTitle() {
                     <hr />
                 `;
                 document.getElementById("search-results").innerHTML += html;
-                document.querySelectorAll(".result-3-text").forEach(function(element) {
-                    if (element.textContent.length > 132) {
-                        element.dataset.fulltext = element.textContent;
-                        let maxLength = 132;
-                        element.dataset.shorttext = truncateText(element.textContent, maxLength);
-                        element.textContent = element.dataset.shorttext;
-                    } 
-                    else if ((element.textContent.length <= 132)) {
-                        element.nextElementSibling.classList.add("hidden");
-                    }
-                  });
             }
         }
     } else if (movieTitleArray.length === 0) {
