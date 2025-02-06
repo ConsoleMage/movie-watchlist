@@ -91,14 +91,18 @@ main {
     background-size: cover;
 }
 
+#search-input,
+#search-button {
+    border: none;
+    color: #FFFFFF;
+}
+
 #search-input {
     width: 60%;
     margin-right: 10px;
     padding: 9px 13px;
     background: #2E2E2F;
-    border: none;
     outline: none;
-    color: white;
 }
 
 #search-button {
@@ -106,12 +110,10 @@ main {
     padding: 9px 11px 9px 17px;
     border-radius: 0px 6px 6px 0px;
     background: #4B4B4B;
-    border: none;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
-    color: #FFFFFF;
 }
 
 /* Empty */
