@@ -47,6 +47,7 @@
 
             if (savedResultsArray.length > 0) {
                 document.getElementById("toggle-empty").style.display = "none";
+                document.getElementById("container").style.overflowY = "scroll";
                 savedResultsArray.forEach(html => {
                     searchResultsContainer.innerHTML += html;
                     const element = document.querySelector(".add-icon");

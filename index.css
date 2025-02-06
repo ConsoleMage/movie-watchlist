@@ -16,9 +16,13 @@ body {
     width: 550px;
     height: 779px;
     overflow: hidden;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow-y: hidden;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+#container::-webkit-scrollbar { 
+    display: none; /* For Chrome, Safari, and Opera */
 }
 
 /* Header */

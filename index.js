@@ -33,6 +33,7 @@ async function getMovieByTitle() {
             };
             if (movieObj) {
                 document.getElementById("toggle-empty").style.display = "none";
+                document.getElementById("container").style.overflowY = "scroll";
                 document.getElementById("search-results").innerHTML += `
                     <div id="result" data-id=${movieObj.id}>
                         <img src="${movieObj.poster}" />
