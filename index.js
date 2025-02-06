@@ -97,18 +97,3 @@ document.querySelector("#container").addEventListener("click", (e) => {
         console.log("Added to watchlist!")
     }
 });
-
-// Read more
-
-function toggleText() {
-    const moreText = document.getElementById("moreText");
-    const btnText = document.getElementById("readMoreBtn");
-
-    if (moreText.style.display === "none") {
-        moreText.style.display = "inline";
-        btnText.textContent = "Read Less";
-    } else {
-        moreText.style.display = "none";
-        btnText.textContent = "Read More...";
-    }
-}
