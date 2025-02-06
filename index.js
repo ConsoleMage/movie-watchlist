@@ -109,10 +109,3 @@ document.querySelector("#container").addEventListener("click", (e) => {
         console.log("Added to watchlist!")
     }
 });
-
-function truncateText(text, maxLength) {
-    if (text.length > maxLength) {
-      return text.substring(0, maxLength) + '...';
-    }
-    return text;
-  }
