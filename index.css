@@ -133,6 +133,19 @@ main {
     color: #2E2E2F;
 }
 
+/* No result found */
+
+#search-results > p {
+    margin: 434px auto 0;
+    width: 321px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    color: #787878;
+}
+
 /* Results styling */
 
 #search-results {

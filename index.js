@@ -17,50 +17,51 @@ document.getElementById("search-bar").addEventListener("submit", function (event
 
 async function getMovieByTitle() {
     await getMovieBySearch();
-    console.log(movieTitleArray);
-    for (let movie of movieTitleArray) {
-        const titleResponse = await fetch(`https://www.omdbapi.com/?apikey=145209d1&t=${movie}`);
-        const titleData = await titleResponse.json();
-        let movieObj = {
-            poster: titleData.Poster,
-            title: titleData.Title,
-            rating: titleData.imdbRating,
-            runtime: titleData.Runtime,
-            genre: titleData.Genre,
-            plot: titleData.Plot,
-            id: titleData.imdbID
-        };
-        if (movieObj) {
-            document.getElementById("toggle-empty").style.display = "none";
-            document.getElementById("search-results").innerHTML += `
-                <div id="result" data-id=${movieObj.id}>
-                    <img src="${movieObj.poster}" />
-                    <div id="result-info">
-                        <div id="result-1">
-                            <p>${movieObj.title} ⭐</p>
-                            <p>${movieObj.rating}</p>
-                        </div>
-                        <div id="result-2">
-                            <p id="runtime">${movieObj.runtime}</p>
-                            <p id="genre">${movieObj.genre}</p>
-                            <div class="add-icon" data-id=${movieObj.id}></div>
-                            <p id="watch">Watchlist</p>
-                        </div>
-                        <div id="result-3">
-                            <p id="summary">${movieObj.plot}</p>
+    console.log(movieTitleArray.length);
+    if (movieTitleArray.length >= 1) {
+        for (let movie of movieTitleArray) {
+            const titleResponse = await fetch(`https://www.omdbapi.com/?apikey=145209d1&t=${movie}`);
+            const titleData = await titleResponse.json();
+            let movieObj = {
+                poster: titleData.Poster,
+                title: titleData.Title,
+                rating: titleData.imdbRating,
+                runtime: titleData.Runtime,
+                genre: titleData.Genre,
+                plot: titleData.Plot,
+                id: titleData.imdbID
+            };
+            if (movieObj) {
+                document.getElementById("toggle-empty").style.display = "none";
+                document.getElementById("search-results").innerHTML += `
+                    <div id="result" data-id=${movieObj.id}>
+                        <img src="${movieObj.poster}" />
+                        <div id="result-info">
+                            <div id="result-1">
+                                <p>${movieObj.title} ⭐</p>
+                                <p>${movieObj.rating}</p>
+                            </div>
+                            <div id="result-2">
+                                <p id="runtime">${movieObj.runtime}</p>
+                                <p id="genre">${movieObj.genre}</p>
+                                <div class="add-icon" data-id=${movieObj.id}></div>
+                                <p id="watch">Watchlist</p>
+                            </div>
+                            <div id="result-3">
+                                <p id="summary">${movieObj.plot}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr />
-            `;
-            
-        } else {
-            console.log("check if here is working");
-            document.getElementById("toggle-empty").style.display = "none";
-            document.getElementById("search-results").innerHTML += `
-                <p>Unable to find what you’re looking for. Please try another search.</p>
-        `;
+                    <hr />
+                `;
+            }
         }
+    } else if (movieTitleArray.length === 0) {
+        console.log("check if here is working");
+        document.getElementById("toggle-empty").style.display = "none";
+        document.getElementById("search-results").innerHTML += `
+            <p>Unable to find what you’re looking for. Please try another search.</p>
+    `;
     }
 }
 
