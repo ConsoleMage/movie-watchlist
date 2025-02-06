@@ -39,8 +39,10 @@
         </main>
     </div>
     <script>
-        document.getElementById("toggle-empty").style.display = "none";
         const searchResultsContainer = document.getElementById("search-results");
+
+        document.getElementById("toggle-empty").style.display = "none";
+        document.getElementById("search-bar").style.display = "none";
         
         function loadSavedResults() {
             let savedResultsArray = JSON.parse(localStorage.getItem("savedResultHTML"));
