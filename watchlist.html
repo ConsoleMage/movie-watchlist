@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,45 +12,71 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
-    <header>
-        <h1>My Watchlist</h1>
-        <a href="./index.html"><p>Search for movies</p></a>
-    </header>
-    <main>
-        <section>
-            <form id="search-bar">
-                <div id="search-icon"></div>
-                <input id="search-input" type="text" name="query" placeholder="Searching something with no data" required>
-                <button id="search-button" type="submit">Search</button>
-            </form>
-        </section>
-        <section id="search-results">
-            <div id="toggle-empty">
-                <img id="empty" src="./icons/film.png" alt="" />
-                <p id="empty-text">Start exploring</p>
-            </div>
-        </section>
-    </main>
+        <header>
+            <h1>My Watchlist</h1>
+            <a href="./index.html">
+                <p>Search for movies</p>
+            </a>
+        </header>
+        <main>
+            <section>
+                <form id="search-bar">
+                    <div id="search-icon"></div>
+                    <input id="search-input" type="text" name="query" placeholder="Searching something with no data"
+                        required>
+                    <button id="search-button" type="submit">Search</button>
+                </form>
+            </section>
+            <section id="search-results">
+                <div id="toggle-empty">
+                    <img id="empty" src="./icons/film.png" alt="" />
+                    <p id="empty-text">Start exploring</p>
+                </div>
+            </section>
+        </main>
     </div>
     <script>
-        console.log(JSON.parse(localStorage.getItem("savedResultHTML")));
-        loadSavedResults();
+        let savedResults = JSON.parse(localStorage.getItem("savedResultHTML"));
+
         // Function to load the saved HTML from localStorage and display it
+
         function loadSavedResults() {
-            const savedResults = JSON.parse(localStorage.getItem("savedResultHTML"));
             const searchResultsContainer = document.getElementById("search-results");
             if (savedResults) {
-            // Remove the empty state if there are saved results
+                // Remove the empty state if there are saved results
                 document.getElementById("toggle-empty").style.display = "none";
                 savedResults.forEach(html => {
                     searchResultsContainer.innerHTML += html;
+                    console.log(document.querySelector(".add-icon"));
+                    document.querySelector(".add-icon").classList.add("remove-icon");
+                    document.querySelector(".add-icon").classList.remove("add-icon");
                 });
             } else {
                 document.getElementById("toggle-empty").innerHTML = ``;
             }
         }
+
+        // Remove from watchlist functionality
+
+        document.querySelector(".container").addEventListener("click", (e) => {
+            const targetElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`);
+            if (targetElement) {
+                console.log("remove clicked");
+                const elementTargetId = e.target.dataset.id;
+                console.log(elementTargetId);
+
+                // Remove the corresponding HTML from localStorage
+                savedResults = savedResults.filter(html => !html.includes(`data-id="${elementTargetId}"`));
+                localStorage.setItem("savedResultHTML", JSON.stringify(savedResults));
+                console.log(`Item with data-id ${elementTargetId} removed from localStorage`);
+            }
+        });
+
+        loadSavedResults();
     </script>
 </body>
+
 </html>
