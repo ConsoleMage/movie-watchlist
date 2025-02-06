@@ -37,20 +37,20 @@ async function getMovieByTitle() {
                 document.getElementById("toggle-empty").style.display = "none";
                 document.getElementById("container").style.overflowY = "scroll";
                 html = `
-                    <div id="result" data-id=${movieObj.id}>
+                    <div class="result" data-id=${movieObj.id}>
                         <img src="${movieObj.poster}" />
-                        <div id="result-info">
-                            <div id="result-1">
+                        <div class="result-info">
+                            <div class="result-1">
                                 <p>${movieObj.title} ⭐</p>
                                 <p>${movieObj.rating}</p>
                             </div>
-                            <div id="result-2">
-                                <p id="runtime">${movieObj.runtime}</p>
-                                <p id="genre">${movieObj.genre}</p>
+                            <div class="result-2">
+                                <p>${movieObj.runtime}</p>
+                                <p class="genre">${movieObj.genre}</p>
                                 <div class="add-icon" data-id=${movieObj.id}></div>
                                 <p id="watch">Watchlist</p>
                             </div>
-                            <div id="result-3">
+                            <div class="result-3">
                                 <p id="summary">${movieObj.plot}</p>
                             </div>
                         </div>
