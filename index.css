@@ -94,9 +94,6 @@ main {
 #search-input {
     width: 60%;
     margin-right: 10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     padding: 9px 13px;
     background: #2E2E2F;
     border: none;
