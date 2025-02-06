@@ -46,6 +46,8 @@
                 savedResults.forEach(html => {
                     searchResultsContainer.innerHTML += html;
                 });
+            } else {
+                document.getElementById("toggle-empty").innerHTML = ``;
             }
         }
     </script>

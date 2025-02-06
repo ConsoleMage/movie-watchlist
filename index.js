@@ -55,6 +55,8 @@ async function getMovieByTitle() {
             `;
             
         } else {
+            console.log("check if here is working");
+            document.getElementById("toggle-empty").style.display = "none";
             document.getElementById("search-results").innerHTML += `
                 <p>Unable to find what you’re looking for. Please try another search.</p>
         `;
