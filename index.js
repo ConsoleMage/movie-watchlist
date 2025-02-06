@@ -81,9 +81,7 @@ document.querySelector(".container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
 
     if (resultElement) {
-        localStorage.setItem("savedResultHTML", resultElement.outerHTML);
-        console.log(resultElement.outerHTML);
         watchList.push(resultElement.outerHTML);
-        console.log(watchList);
+        localStorage.setItem("savedResultHTML", JSON.stringify(watchList));
     }
 });

@@ -14,12 +14,12 @@
 <body>
     <div class="container">
     <header>
-        <h1>Find your film</h1>
-        <p>My Watchlist</p>
+        <h1>My Watchlist</h1>
+        <a href="./index.html"><p>Search for movies</p></a>
     </header>
     <main>
         <section>
-            <form id="search-bar" action="/search" method="GET">
+            <form id="search-bar">
                 <div id="search-icon"></div>
                 <input id="search-input" type="text" name="query" placeholder="Searching something with no data" required>
                 <button id="search-button" type="submit">Search</button>
@@ -33,6 +33,21 @@
         </section>
     </main>
     </div>
-    <script src="./index.js"></script>
+    <script>
+        console.log(JSON.parse(localStorage.getItem("savedResultHTML")));
+        loadSavedResults();
+        // Function to load the saved HTML from localStorage and display it
+        function loadSavedResults() {
+            const savedResults = JSON.parse(localStorage.getItem("savedResultHTML"));
+            const searchResultsContainer = document.getElementById("search-results");
+            if (savedResults) {
+            // Remove the empty state if there are saved results
+                document.getElementById("toggle-empty").style.display = "none";
+                savedResults.forEach(html => {
+                    searchResultsContainer.innerHTML += html;
+                });
+            }
+        }
+    </script>
 </body>
 </html>
