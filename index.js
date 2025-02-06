@@ -42,8 +42,7 @@ async function getMovieByTitle() {
                                 <p class="watch">Watchlist</p>
                             </div>
                             <div class="result-3">
-                                <p class="result-3-text">${titleData.Plot}</p>
-                                <div class="read-more">Read more</div>
+                                <p>${titleData.Plot}</p>
                             </div>
                         </div>
                     </div>
