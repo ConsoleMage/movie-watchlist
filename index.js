@@ -48,10 +48,10 @@ async function getMovieByTitle() {
                                 <p>${movieObj.runtime}</p>
                                 <p class="genre">${movieObj.genre}</p>
                                 <div class="add-icon" data-id=${movieObj.id}></div>
-                                <p id="watch">Watchlist</p>
+                                <p class="watch">Watchlist</p>
                             </div>
                             <div class="result-3">
-                                <p id="summary">${movieObj.plot}</p>
+                                <p>${movieObj.plot}</p>
                             </div>
                         </div>
                     </div>
