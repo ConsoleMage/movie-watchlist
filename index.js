@@ -10,7 +10,6 @@ searchBtn.addEventListener("click", getMovieByTitle);
 // Prevent form button submit default behaviour
 
 document.getElementById("search-bar").addEventListener("submit", function (event) {
-    console.log("prevent default works here!!");
     event.preventDefault();
 });
 
@@ -24,35 +23,32 @@ async function getMovieByTitle() {
         for (let movie of movieTitleArray) {
             const titleResponse = await fetch(`https://www.omdbapi.com/?apikey=145209d1&t=${movie}`);
             const titleData = await titleResponse.json();
-            if (movieTitleArray) {
-                document.getElementById("toggle-empty").style.display = "none";
-                document.getElementById("container").style.overflowY = "scroll";
-                html = `
-                    <div class="result" data-id=${titleData.imdbID}>
-                        <img src="${titleData.Poster}" />
-                        <div class="result-info">
-                            <div class="result-1">
-                                <p>${titleData.Title} ⭐</p>
-                                <p>${titleData.imdbRating}</p>
-                            </div>
-                            <div class="result-2">
-                                <p>${titleData.Runtime}</p>
-                                <p class="genre">${titleData.Genre}</p>
-                                <div class="add-icon" data-id=${titleData.imdbID}></div>
-                                <p class="watch">Watchlist</p>
-                            </div>
-                            <div class="result-3">
-                                <p>${titleData.Plot}</p>
-                            </div>
+            document.getElementById("toggle-empty").style.display = "none";
+            document.getElementById("container").style.overflowY = "scroll";
+            html = `
+                <div class="result" data-id=${titleData.imdbID}>
+                    <img src="${titleData.Poster}" />
+                    <div class="result-info">
+                        <div class="result-1">
+                            <p>${titleData.Title} ⭐</p>
+                            <p>${titleData.imdbRating}</p>
+                        </div>
+                        <div class="result-2">
+                            <p>${titleData.Runtime}</p>
+                            <p class="genre">${titleData.Genre}</p>
+                            <div class="add-icon" data-id=${titleData.imdbID}></div>
+                            <p class="watch">Watchlist</p>
+                        </div>
+                        <div class="result-3">
+                            <p>${titleData.Plot}</p>
                         </div>
                     </div>
-                    <hr />
-                `;
-                document.getElementById("search-results").innerHTML += html;
-            }
+                </div>
+                <hr />
+            `;
+            document.getElementById("search-results").innerHTML += html;
         }
     } else if (movieTitleArray.length === 0) {
-        console.log("check if here is working");
         document.getElementById("toggle-empty").style.display = "none";
         document.getElementById("search-results").innerHTML += `
             <p>Unable to find what you’re looking for. Please try another search.</p>
