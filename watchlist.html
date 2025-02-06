@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <header>
             <h1>My Watchlist</h1>
             <a href="./index.html">
@@ -56,30 +56,35 @@
                     }
                 });
             } else if (savedResultsArray.length === 0) {
-                console.log("check if here is working");
+                console.log("Array is empty! Nothing to display.");
                 document.getElementById("toggle-empty").style.display = "none";
                 document.getElementById("search-results").innerHTML += `
-                <p>Unable to find what you’re looking for. Please try another search.</p>
+                <p>Your watchlist is looking a little empty...</p>
+                <div id="empty-watch">
+                    <div id="empty-add"></div>
+                    <p>Let’s add some movies!</p>
+                </div>
                 `;
             }
         }
 
         // Remove from watchlist functionality
 
-        document.querySelector(".container").addEventListener("click", (e) => {
+        document.querySelector("#container").addEventListener("click", (e) => {
             let savedResultsArray = JSON.parse(localStorage.getItem("savedResultHTML"));
             const targetElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`);
             if (targetElement) {
                 const elementTargetId = e.target.dataset.id;
                 console.log("elementTargetId: " + elementTargetId);
                 console.log("Before Remove: " + savedResultsArray);
-                // Remove the corresponding HTML from localStorage
+
                 if (savedResultsArray) {
                     savedResultsArray = savedResultsArray.filter(html => !html.includes(`data-id="${elementTargetId}"`));
                     localStorage.setItem("savedResultHTML", JSON.stringify(savedResultsArray));
                 }
             }
             console.log("After Remove: " + savedResultsArray);
+            searchResultsContainer.innerHTML = "";
             loadSavedResults();
         });
 

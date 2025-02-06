@@ -10,7 +10,7 @@ body {
     font-weight: 500;
 }
 
-.container {
+#container {
     margin: 100px auto 0;
     background: #121212;
     width: 550px;
@@ -206,6 +206,10 @@ main {
     cursor: pointer;
 }
 
+#watch {
+    margin-right: 20px;
+}
+
 .remove-icon {
     margin-left: 20px;
     margin-right: 5px;
@@ -217,13 +221,31 @@ main {
     cursor: pointer;
 }
 
+#empty-watch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+#empty-add {
+    width: 20px;
+    height: 20px;
+    background-image: url("./icons/icon-1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#empty-watch > p {
+    align-items: center;
+}
+
 #genre {
     margin-left: 10px;
 }
 
-#watch {
-    margin-right: 20px;
-}
+
 
 /* Result 3 */
 
