@@ -1,4 +1,5 @@
 let movieTitleArray = [];
+let html = "";
 let watchList = [];
 
 const searchInput = document.getElementById("search-input");
@@ -16,6 +17,7 @@ document.getElementById("search-bar").addEventListener("submit", function (event
 // Use global variable movieTitleArray in for...of loop to return all data from &t= endpoint
 
 async function getMovieByTitle() {
+    movieTitleArray = [];
     await getMovieBySearch();
     console.log(movieTitleArray.length);
     if (movieTitleArray.length >= 1) {
@@ -34,7 +36,7 @@ async function getMovieByTitle() {
             if (movieObj) {
                 document.getElementById("toggle-empty").style.display = "none";
                 document.getElementById("container").style.overflowY = "scroll";
-                document.getElementById("search-results").innerHTML += `
+                html = `
                     <div id="result" data-id=${movieObj.id}>
                         <img src="${movieObj.poster}" />
                         <div id="result-info">
@@ -55,6 +57,7 @@ async function getMovieByTitle() {
                     </div>
                     <hr />
                 `;
+                document.getElementById("search-results").innerHTML += html;
             }
         }
     } else if (movieTitleArray.length === 0) {
@@ -77,6 +80,11 @@ async function getMovieBySearch() {
             movieTitleArray.push(movie.Title);
         }
     }
+    document.getElementById("search-results").innerHTML = `
+                <div id="toggle-empty">
+                    <img id="empty" src="./icons/film.png" alt="" />
+                    <p id="empty-text">Start exploring</p>
+                </div>`;
 }
 
 // Add to watchlist functionality
