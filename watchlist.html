@@ -39,43 +39,52 @@
         </main>
     </div>
     <script>
-        let savedResults = JSON.parse(localStorage.getItem("savedResultHTML"));
-
-        // Function to load the saved HTML from localStorage and display it
-
+        const searchResultsContainer = document.getElementById("search-results");
+        
         function loadSavedResults() {
-            const searchResultsContainer = document.getElementById("search-results");
-            if (savedResults) {
-                // Remove the empty state if there are saved results
+            let savedResultsArray = JSON.parse(localStorage.getItem("savedResultHTML"));
+            console.log("On Load: " + savedResultsArray);
+
+            if (savedResultsArray.length > 0) {
                 document.getElementById("toggle-empty").style.display = "none";
-                savedResults.forEach(html => {
+                savedResultsArray.forEach(html => {
                     searchResultsContainer.innerHTML += html;
-                    console.log(document.querySelector(".add-icon"));
-                    document.querySelector(".add-icon").classList.add("remove-icon");
-                    document.querySelector(".add-icon").classList.remove("add-icon");
+                    const element = document.querySelector(".add-icon");
+                    if (element) {
+                        element.classList.add("remove-icon");
+                        element.classList.remove("add-icon");
+                    }
                 });
-            } else {
-                document.getElementById("toggle-empty").innerHTML = ``;
+            } else if (savedResultsArray.length === 0) {
+                console.log("check if here is working");
+                document.getElementById("toggle-empty").style.display = "none";
+                document.getElementById("search-results").innerHTML += `
+                <p>Unable to find what you’re looking for. Please try another search.</p>
+                `;
             }
         }
 
         // Remove from watchlist functionality
 
         document.querySelector(".container").addEventListener("click", (e) => {
+            let savedResultsArray = JSON.parse(localStorage.getItem("savedResultHTML"));
             const targetElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`);
             if (targetElement) {
-                console.log("remove clicked");
                 const elementTargetId = e.target.dataset.id;
-                console.log(elementTargetId);
-
+                console.log("elementTargetId: " + elementTargetId);
+                console.log("Before Remove: " + savedResultsArray);
                 // Remove the corresponding HTML from localStorage
-                savedResults = savedResults.filter(html => !html.includes(`data-id="${elementTargetId}"`));
-                localStorage.setItem("savedResultHTML", JSON.stringify(savedResults));
-                console.log(`Item with data-id ${elementTargetId} removed from localStorage`);
+                if (savedResultsArray) {
+                    savedResultsArray = savedResultsArray.filter(html => !html.includes(`data-id="${elementTargetId}"`));
+                    localStorage.setItem("savedResultHTML", JSON.stringify(savedResultsArray));
+                }
             }
+            console.log("After Remove: " + savedResultsArray);
+            loadSavedResults();
         });
 
         loadSavedResults();
+
     </script>
 </body>
 

@@ -82,12 +82,10 @@ async function getMovieBySearch() {
 
 document.querySelector(".container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
-
     if (resultElement) {
-        console.log("add-icon clicked?")
         watchList.push(resultElement.outerHTML);
         localStorage.setItem("savedResultHTML", JSON.stringify(watchList));
     }
-
-    const removeBtn = document.querySelector(".remove-icon")
+    console.log("added to watchlist!")
+    console.log(localStorage);
 });
