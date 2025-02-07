@@ -25,7 +25,34 @@ async function getMovieByTitle() {
             const titleData = await titleResponse.json();
             document.getElementById("toggle-empty").style.display = "none";
             document.getElementById("container").style.overflowY = "scroll";
-            html = `
+            
+            if (titleData.Plot.length > 132) {
+                let maxLength = 132;
+                let shortText = truncateText(titleData.Plot, maxLength);
+                html = `
+                <div class="result" data-id=${titleData.imdbID}>
+                    <img src="${titleData.Poster}" />
+                    <div class="result-info">
+                        <div class="result-1">
+                            <p>${titleData.Title} ⭐</p>
+                            <p>${titleData.imdbRating}</p>
+                        </div>
+                        <div class="result-2">
+                            <p>${titleData.Runtime}</p>
+                            <p class="genre">${titleData.Genre}</p>
+                            <div class="add-icon" data-id=${titleData.imdbID}></div>
+                            <p class="watch">Watchlist</p>
+                        </div>
+                        <div class="result-3">
+                            <span>${shortText}</span>
+                            <button type="button" data-plot="${titleData.Plot}">Read more</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            `;
+            } else {
+                html = `
                 <div class="result" data-id=${titleData.imdbID}>
                     <img src="${titleData.Poster}" />
                     <div class="result-info">
@@ -46,7 +73,9 @@ async function getMovieByTitle() {
                 </div>
                 <hr />
             `;
+            }
             document.getElementById("search-results").innerHTML += html;
+
         }
     } else if (movieTitleArray.length === 0) {
         document.getElementById("toggle-empty").style.display = "none";
@@ -77,6 +106,25 @@ async function getMovieBySearch() {
 // Add to watchlist functionality
 
 document.querySelector("#container").addEventListener("click", (e) => {
+    // Check if the clicked element is a button with a data-plot attribute
+    if (e.target.tagName === "BUTTON" && e.target.dataset.plot) {
+      // Find the parent .result-3 element
+      const resultElement = e.target.closest('.result-3');
+      // Find the span inside the parent .result-3 element
+      const textElement = resultElement.querySelector('span');
+      // Log the text element and data-plot value
+      console.log(textElement);
+      console.log(e.target.dataset.plot);
+      // Update the text content if the text element is found
+      if (textElement) {
+        const plotText = e.target.dataset.plot;
+        textElement.textContent = plotText;
+      }
+    }
+  });
+  
+
+document.querySelector("#container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
     if (resultElement) {
         watchList.push(resultElement.outerHTML);
@@ -84,3 +132,12 @@ document.querySelector("#container").addEventListener("click", (e) => {
         console.log("Added to watchlist!")
     }
 });
+
+
+
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+}
