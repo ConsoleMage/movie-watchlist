@@ -103,7 +103,7 @@ async function getMovieBySearch() {
                 </div>`;
 }
 
-// Add to watchlist functionality
+// Read more functionality
 
 document.querySelector("#container").addEventListener("click", (e) => {
     // Check if the clicked element is a button with a data-plot attribute
@@ -124,6 +124,15 @@ document.querySelector("#container").addEventListener("click", (e) => {
     }
   });
 
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength) + '...';
+    }
+    return text;
+}
+
+// Add to watchlist functionality
+
 document.querySelector("#container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
     if (resultElement) {
@@ -132,10 +141,3 @@ document.querySelector("#container").addEventListener("click", (e) => {
         console.log("Added to watchlist!")
     }
 });
-
-function truncateText(text, maxLength) {
-    if (text.length > maxLength) {
-      return text.substring(0, maxLength) + '...';
-    }
-    return text;
-}
