@@ -120,9 +120,9 @@ document.querySelector("#container").addEventListener("click", (e) => {
         const plotText = e.target.dataset.plot;
         textElement.textContent = plotText;
       }
+      e.target.classList.add('hidden');
     }
   });
-  
 
 document.querySelector("#container").addEventListener("click", (e) => {
     const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
@@ -132,8 +132,6 @@ document.querySelector("#container").addEventListener("click", (e) => {
         console.log("Added to watchlist!")
     }
 });
-
-
 
 function truncateText(text, maxLength) {
     if (text.length > maxLength) {
