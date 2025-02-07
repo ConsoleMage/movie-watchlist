@@ -45,7 +45,6 @@ async function getMovieByTitle() {
                         </div>
                         <div class="result-3">
                             <span>${shortText}<button type="button" data-plot="${titleData.Plot}">Read more</button></span>
-                            
                         </div>
                     </div>
                 </div>
