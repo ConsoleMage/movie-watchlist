@@ -74,7 +74,7 @@
 
         document.querySelector("#container").addEventListener("click", (e) => {
             let savedResultsArray = JSON.parse(localStorage.getItem("savedResultHTML"));
-            const targetElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`);
+            const targetElement = document.querySelector(`.result[data-id="${e.target.dataset.id}"]`);
             if (targetElement) {
                 const elementTargetId = e.target.dataset.id;
                 console.log("elementTargetId: " + elementTargetId);
