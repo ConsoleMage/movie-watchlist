@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,33 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <div id="container">
-    <header>
-        <h1>Find your film</h1>
-        <a href="./watchlist.html"><p>My Watchlist</p></a>
-    </header>
-    <main>
-        <section>
-            <form id="search-bar">
-                <div id="search-icon"></div>
-                <input id="search-input" type="text" name="query" placeholder="Searching something with no data" required>
-                <button id="search-button" type="submit">Search</button>
-            </form>
-        </section>
-        <section id="search-results">
-            <div id="toggle-empty">
-                <img id="empty" src="./icons/film.png" alt="" />
-                <p id="empty-text">Start exploring</p>
-            </div>
-        </section>
-    </main>
+        <header>
+            <h1>Find your film</h1>
+            <a href="./watchlist.html">
+                <p>My Watchlist</p>
+            </a>
+        </header>
+        <main>
+            <section>
+                <form id="search-bar">
+                    <div id="search-icon"></div>
+                    <input id="search-input" type="text" name="query" placeholder="Searching something with no data"
+                        required>
+                    <button id="search-button" type="submit">Search</button>
+                </form>
+            </section>
+            <section id="search-results">
+                <div id="toggle-empty">
+                    <img id="empty" src="./icons/film.png" alt="" />
+                    <p id="empty-text">Start exploring</p>
+                </div>
+            </section>
+        </main>
     </div>
     <script src="./index.js"></script>
 </body>
+
 </html>

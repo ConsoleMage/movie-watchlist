@@ -21,7 +21,7 @@ body {
     -ms-overflow-style: none;
 }
 
-#container::-webkit-scrollbar { 
+#container::-webkit-scrollbar {
     display: none;
 }
 
@@ -40,8 +40,8 @@ header {
     margin: 0 auto;
 }
 
-header h1, 
-header > a,
+header h1,
+header>a,
 #search-icon {
     align-self: center;
 }
@@ -54,7 +54,7 @@ header h1 {
     letter-spacing: -0.045em;
 }
 
-header > a {
+header>a {
     margin-right: 42px;
     font-size: 14px;
     font-weight: 700;
@@ -139,7 +139,7 @@ main {
 
 /* No result found */
 
-#search-results > p {
+#search-results>p {
     margin: 434px auto 0;
     width: 321px;
     height: 40px;
@@ -162,7 +162,7 @@ main {
     margin-bottom: 20px;
 }
 
-.result > img {
+.result>img {
     margin-top: 30px;
     width: 99px;
     height: 147.41px;
@@ -251,15 +251,15 @@ main {
 /* Result 3 */
 
 
-.result-3 > span,
-.result-3 > p {
+.result-3>span,
+.result-3>p {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     color: #A5A5A5;
 }
 
-.result-3 > span > button {
+.result-3>span>button {
     background: none;
     border: none;
     padding: 0;

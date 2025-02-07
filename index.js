@@ -25,7 +25,7 @@ async function getMovieByTitle() {
             const titleData = await titleResponse.json();
             document.getElementById("toggle-empty").style.display = "none";
             document.getElementById("container").style.overflowY = "scroll";
-            
+
             if (titleData.Plot.length > 132) {
                 let maxLength = 132;
                 let shortText = truncateText(titleData.Plot, maxLength);
@@ -108,23 +108,23 @@ async function getMovieBySearch() {
 document.querySelector("#container").addEventListener("click", (e) => {
 
     if (e.target.tagName === "BUTTON" && e.target.dataset.plot) {
-      const resultElement = e.target.closest('.result-3');
-      const textElement = resultElement.querySelector('span');
+        const resultElement = e.target.closest('.result-3');
+        const textElement = resultElement.querySelector('span');
 
-      console.log(textElement);
-      console.log(e.target.dataset.plot);
+        console.log(textElement);
+        console.log(e.target.dataset.plot);
 
-      if (textElement) {
-        const plotText = e.target.dataset.plot;
-        textElement.textContent = plotText;
-      }
-      e.target.classList.add('hidden');
+        if (textElement) {
+            const plotText = e.target.dataset.plot;
+            textElement.textContent = plotText;
+        }
+        e.target.classList.add('hidden');
     }
-  });
+});
 
-  function truncateText(text, maxLength) {
+function truncateText(text, maxLength) {
     text = text.trimEnd();
-    
+
     if (text.length > maxLength) {
         let truncatedText = text.substring(0, maxLength).trimEnd();
         return truncatedText + '...';
