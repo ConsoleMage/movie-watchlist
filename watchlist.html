@@ -45,13 +45,14 @@
         document.getElementById("search-bar").style.display = "none";
         
         function loadSavedResults() {
+            const hr = "<hr />";
             let savedResultsArray = JSON.parse(localStorage.getItem("savedResultHTML"));
             console.log("On Load: " + savedResultsArray);
 
             if (savedResultsArray.length > 0) {
                 document.getElementById("container").style.overflowY = "scroll";
                 savedResultsArray.forEach(html => {
-                    searchResultsContainer.innerHTML += html;
+                    searchResultsContainer.innerHTML += html + hr;
                     const element = document.querySelector(".add-icon");
                     if (element) {
                         element.classList.add("remove-icon");
@@ -59,6 +60,7 @@
                     }
                 });
             } else if (savedResultsArray.length === 0) {
+                document.getElementById("container").style.overflowY = "hidden";
                 console.log("Array is empty! Nothing to display.");
                 document.getElementById("search-results").innerHTML += `
                 <p>Your watchlist is looking a little empty...</p>
