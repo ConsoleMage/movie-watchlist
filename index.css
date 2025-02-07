@@ -39,6 +39,7 @@ header {
     justify-content: space-between;
     margin: 0 auto;
 }
+
 header h1, 
 header > a,
 #search-icon {

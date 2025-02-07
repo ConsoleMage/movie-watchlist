@@ -106,16 +106,14 @@ async function getMovieBySearch() {
 // Read more functionality
 
 document.querySelector("#container").addEventListener("click", (e) => {
-    // Check if the clicked element is a button with a data-plot attribute
+
     if (e.target.tagName === "BUTTON" && e.target.dataset.plot) {
-      // Find the parent .result-3 element
       const resultElement = e.target.closest('.result-3');
-      // Find the span inside the parent .result-3 element
       const textElement = resultElement.querySelector('span');
-      // Log the text element and data-plot value
+
       console.log(textElement);
       console.log(e.target.dataset.plot);
-      // Update the text content if the text element is found
+
       if (textElement) {
         const plotText = e.target.dataset.plot;
         textElement.textContent = plotText;
