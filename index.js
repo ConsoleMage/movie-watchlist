@@ -125,28 +125,19 @@ document.querySelector("#container").addEventListener("click", (e) => {
   });
 
   function truncateText(text, maxLength) {
-    // Trim trailing spaces from the text
     text = text.trimEnd();
     
     if (text.length > maxLength) {
-        // Ensure the last character isn't a space
         let truncatedText = text.substring(0, maxLength).trimEnd();
         return truncatedText + '...';
     }
     return text;
 }
 
-// Example usage:
-let longText = "Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years. ";
-let truncatedText = truncateText(longText, 132);
-
-console.log(truncatedText);
-
-
-// Add to watchlist functionality
+// Watchlist functionality
 
 document.querySelector("#container").addEventListener("click", (e) => {
-    const resultElement = document.querySelector(`#result[data-id="${e.target.dataset.id}"]`)
+    const resultElement = document.querySelector(`.result[data-id="${e.target.dataset.id}"]`)
     if (resultElement) {
         watchList.push(resultElement.outerHTML);
         localStorage.setItem("savedResultHTML", JSON.stringify(watchList));
