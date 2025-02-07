@@ -44,8 +44,8 @@ async function getMovieByTitle() {
                             <p class="watch">Watchlist</p>
                         </div>
                         <div class="result-3">
-                            <span>${shortText}</span>
-                            <button type="button" data-plot="${titleData.Plot}">Read more</button>
+                            <span>${shortText}<button type="button" data-plot="${titleData.Plot}">Read more</button></span>
+                            
                         </div>
                     </div>
                 </div>
@@ -124,12 +124,24 @@ document.querySelector("#container").addEventListener("click", (e) => {
     }
   });
 
-function truncateText(text, maxLength) {
+  function truncateText(text, maxLength) {
+    // Trim trailing spaces from the text
+    text = text.trimEnd();
+    
     if (text.length > maxLength) {
-        return text.substring(0, maxLength) + '...';
+        // Ensure the last character isn't a space
+        let truncatedText = text.substring(0, maxLength).trimEnd();
+        return truncatedText + '...';
     }
     return text;
 }
+
+// Example usage:
+let longText = "Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years. ";
+let truncatedText = truncateText(longText, 132);
+
+console.log(truncatedText);
+
 
 // Add to watchlist functionality
 
